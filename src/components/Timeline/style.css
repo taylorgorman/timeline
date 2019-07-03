@@ -1,0 +1,27 @@
+
+.timeline .item {
+  background-color: #bef4ed;
+  border-radius: 10em;
+  line-height: 1;
+  margin: .2em 0;
+}
+.timeline .title {
+  display: inline-block;
+  position: sticky;
+  left: 1em;
+  margin: .2em 1em;
+  font-weight: bold;
+}
+.time-line {
+  white-space: nowrap;
+  margin: 1em 0;
+}
+.time-line .month {
+  border-top: solid 1px;
+  border-left: solid 1px;
+  display: inline-block;
+  width: 10em;
+  padding: .5em 0;
+  font-size: .75em;
+  text-transform: uppercase;
+}
