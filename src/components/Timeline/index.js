@@ -1,6 +1,6 @@
+import './style.css';
 import React from 'react';
 import moment from 'moment';
-import './style.css';
 
 moment.prototype.daysInYear = function(){
   return this.isLeapYear() ? 366 : 365;
