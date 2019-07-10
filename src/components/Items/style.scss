@@ -1,0 +1,31 @@
+
+.item {
+
+  $friend_color: #6976FF;
+  $roommate_color: hsl(110, 100, 50);
+  $romance_color: hsl(10, 100, 50);
+
+  border-radius: 10em;
+  line-height: 1;
+  margin: .2em 0;
+
+  &.friend {
+    background-color: lighten($friend_color, 40);
+    color: darken($friend_color, 30);
+  }
+  &.romance {
+    background-color: lighten($romance_color, 40);
+    color: darken($romance_color, 30);
+  }
+  &.roommate {
+    background-color: lighten($roommate_color, 40);
+    color: darken($roommate_color, 30);
+  }
+  .title {
+    display: inline-block;
+    position: sticky;
+    left: 1em;
+    margin: .2em 1em;
+    font-weight: 600;
+  }
+}
