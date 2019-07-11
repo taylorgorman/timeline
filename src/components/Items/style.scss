@@ -4,11 +4,16 @@
   $friend_color: hsl(215, 100, 50);
   $roommate_color: hsl(90, 90, 50);
   $romance_color: hsl(-10, 100, 50);
+  $place_color: hsl(20, 60, 50);
 
   border-radius: 10em;
   line-height: 1;
   margin: .2em 0;
 
+  &.place {
+    background-color: lighten($place_color, 40);
+    color: darken($place_color, 30);
+  }
   &.friend {
     background-color: lighten($friend_color, 40);
     color: darken($friend_color, 30);
