@@ -27,13 +27,11 @@ export default function ( props ) {
     // Is first year
     if ( iYear.isSame( startYear ) ) {
       daysIn = startYear.clone().endOf('year').diff( startMonth, 'd' ) + 1
-      console.log('is first year', daysIn);
     }
 
     // Is last year
     if ( iYear.isSame( endYear ) ) {
       daysIn = endMonth.clone().endOf('month').diff( endYear, 'd' ) + 1
-      console.log('is last year', daysIn);
     }
 
     // Save
