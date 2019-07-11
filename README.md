@@ -12,3 +12,4 @@
 - Visually group types
 - Items can be changed by grabbing ends or middle
 - Maintain scroll position
+- Connect with Firebase
