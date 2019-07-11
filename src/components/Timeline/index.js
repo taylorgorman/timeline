@@ -1,5 +1,5 @@
 import './style.scss';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
 import Items from '../Items';
@@ -10,36 +10,15 @@ moment.prototype.daysInYear = function(){
   return this.isLeapYear() ? 366 : 365;
 }
 
-export default class Timeline extends React.Component {
+export default function Timeline( props ) {
 
-  state = {
-    items: [],
-    zoom: 0.1,
-  }
+  const [zoom] = useState( 0.1 );
 
-  render() {
+  const [items, setItems] = useState( [] );
+  items.sort( ( a, b ) => ( moment.min( a.start, b.start ) === b.start ) ? 1 : -1 )
+  useEffect( () => { console.log('useEffect setItems');
 
-    this.state.items.sort( ( a, b ) => ( moment.min( a.start, b.start ) === b.start ) ? 1 : -1 )
-
-    return (
-
-      <div className="timeline">
-        <Items
-          items={ this.state.items }
-          zoom={ this.state.zoom }
-        />
-        <Dateline
-          items={ this.state.items }
-          zoom={ this.state.zoom }
-        />
-      </div>
-
-    )
-  }
-
-  componentDidMount() { console.log('componentDidMount()');
-
-    let items = [
+    setItems([
       {
         type: 'romance',
         title: 'Whitney',
@@ -82,10 +61,29 @@ export default class Timeline extends React.Component {
         start: moment('2018-01-01'),
         end: moment('2019-04-15'),
       },
-    ]
+      {
+        type: 'friend',
+        title: 'Casey',
+        start: moment('2006-08-17'),
+        end: moment(),
+      },
+    ])
 
-    this.setState({items});
+  }, [] )
 
-  }
+  return (
+
+    <div className="timeline">
+      <Items
+        items={ items }
+        zoom={ zoom }
+      />
+      <Dateline
+        items={ items }
+        zoom={ zoom }
+      />
+    </div>
+
+  )
 
 }
