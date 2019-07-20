@@ -1,22 +1,22 @@
-import './style.scss';
-import React, { useState, useEffect } from 'react';
-import moment from 'moment';
+import './style.scss'
+import React, { useState, useEffect } from 'react'
+import moment from 'moment'
 
-import Items from '../Items';
-import Dateline from '../Dateline';
+import Items from '../Items'
+import Dateline from '../Dateline'
 
 
 moment.prototype.daysInYear = function(){
-  return this.isLeapYear() ? 366 : 365;
+  return this.isLeapYear() ? 366 : 365
 }
 
-export default function Timeline( props ) {
+export default function ( props ) {
 
-  const [zoom] = useState( 0.1 );
+  const [zoom] = useState( 0.1 )
 
-  const [items, setItems] = useState( [] );
+  const [items, setItems] = useState( [] )
   items.sort( ( a, b ) => ( moment.min( a.start, b.start ) === b.start ) ? 1 : -1 )
-  useEffect( () => { console.log('useEffect setItems');
+  useEffect( () => {
 
     setItems([
       {
@@ -65,7 +65,7 @@ export default function Timeline( props ) {
         type: 'roommate',
         title: 'Ivor',
         start: moment('2017-11-01'),
-        end: moment('2018-3-31'),
+        end: moment('2018-03-31'),
       },
       {
         type: 'friend',
@@ -161,17 +161,17 @@ export default function Timeline( props ) {
 
   }, [] )
 
+  const properties = {
+    items,
+    zoom,
+    startDate: moment.min( items.map( item => item.start ) )
+  }
+
   return (
 
     <div className="timeline">
-      <Items
-        items={ items }
-        zoom={ zoom }
-      />
-      <Dateline
-        items={ items }
-        zoom={ zoom }
-      />
+      <Items { ...properties } />
+      <Dateline { ...properties } />
     </div>
 
   )

@@ -1,4 +1,7 @@
 
+.items {
+  position: relative;
+}
 .item {
 
   $friend_color: hsl(215, 100, 50);
@@ -9,6 +12,7 @@
   border-radius: 10em;
   line-height: 1;
   margin: .2em 0;
+  position: absolute;
 
   &.place {
     background-color: lighten($place_color, 40);

@@ -5,7 +5,7 @@ import moment from 'moment';
 export default function ( props ) {
 
   // timeline boundaries
-  const startDate = moment.min( props.items.map( item => item.start ) )
+  const { startDate } = props
   const startYear = startDate.clone().startOf('year')
   const startMonth = startDate.clone().startOf('month')
   const endDate = moment.max( props.items.map( item => item.end ) )
