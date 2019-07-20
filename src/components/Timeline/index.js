@@ -12,9 +12,18 @@ moment.prototype.daysInYear = function(){
 
 export default function ( props ) {
 
-  const [zoom] = useState( 0.1 )
+  // Width of days
+  const [ zoom ] = useState( 0.1 )
 
-  const [items, setItems] = useState( [] )
+  // Theme
+  const [ isDarkTheme, setIsDarkTheme ] = useState( false )
+  const toggleDarkTheme = () => {
+    document.body.classList.toggle( 'theme-dark' )
+    setIsDarkTheme( ! isDarkTheme )
+  }
+
+  // Items
+  const [ items, setItems ] = useState( [] )
   items.sort( ( a, b ) => ( moment.min( a.start, b.start ) === b.start ) ? 1 : -1 )
   useEffect( () => {
 
@@ -161,19 +170,25 @@ export default function ( props ) {
 
   }, [] )
 
+  // Assign theme
+
+
+  //
   const properties = {
     items,
     zoom,
     startDate: moment.min( items.map( item => item.start ) )
   }
 
-  return (
+  return ([
 
     <div className="timeline">
       <Items { ...properties } />
       <Dateline { ...properties } />
-    </div>
+    </div>,
 
-  )
+    <button className="toggle-theme" onClick={ toggleDarkTheme }>{ isDarkTheme ? 'Light' : 'Dark' } theme</button>
+
+  ])
 
 }

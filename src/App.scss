@@ -1,0 +1,13 @@
+body {
+  padding: 5vh 5vw;
+  display: flex;
+  align-items: flex-end;
+  min-height: 90vh;
+  background: white;
+  color: #222;
+
+  &.theme-dark {
+    background: #222326;
+    color: white;
+  }
+}
