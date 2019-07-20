@@ -1,20 +1,5 @@
+@import '../../styles/start';
 
-button.toggle-theme {
-  position: fixed;
-  top: 5vh;
-  right: 5vw;
-  padding: 1em 1.5em;
-  color: #222;
-  background-color: rgba(#222, .1);
-  border: 0;
-  outline: 0;
-  border-radius: .3em;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: .85em;
-
-  body.theme-dark & {
-    color: white;
-    background-color: rgba(white, .1);
-  }
+.timeline {
+  margin: 5vh calc(#{$admin_width} + 5vw) 5vh 5vw;
 }

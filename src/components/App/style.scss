@@ -1,0 +1,25 @@
+@import '../../styles/start';
+
+body {
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  background: white;
+  color: #222;
+  transition: all 300ms ease-out;
+
+  &.theme-dark {
+    background: $gray-900;
+    color: white;
+  }
+}
+.btn-dark-toggle {
+  position: fixed;
+  top: 5vh;
+  right: calc(#{$admin_width} + 5vw);
+
+//  body.theme-dark & {
+//    color: white;
+//    background-color: rgba(white, .1);
+//  }
+}

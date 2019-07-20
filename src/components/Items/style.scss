@@ -28,6 +28,9 @@
     margin: .2em 1em;
     font-weight: 600;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
   }
   body.theme-dark & {
     @each $label, $color in $colors {

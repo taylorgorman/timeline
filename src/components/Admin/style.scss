@@ -1,0 +1,15 @@
+@import '../../styles/start';
+
+.admin {
+  background-color: $gray-200;
+  height: 100vh;
+  width: $admin_width;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+
+  body.theme-dark & {
+    background-color: darken( $gray-900, 3 );
+  }
+}
