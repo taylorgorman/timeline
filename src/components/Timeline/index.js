@@ -1,7 +1,7 @@
 import './style.scss'
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import data from './data'
+import data from '../../data'
 
 import Items from '../Items'
 import Dateline from '../Dateline'
@@ -23,7 +23,7 @@ export default function ( props ) {
   // if no data, set items
   useEffect( () => {
 
-    setItems( data )
+    setItems( data.items )
 
   }, [] )
 

@@ -1,6 +1,7 @@
 @import '../../styles/start';
 
 .admin {
+  font-size: .875em;
   background-color: $gray-200;
   height: 100vh;
   width: $admin_width;
@@ -8,6 +9,8 @@
   top: 0;
   right: 0;
   z-index: 9;
+  padding: $body_padding_y 0;
+  transition: all 300ms ease-out;
 
   body.theme-dark & {
     background-color: darken( $gray-900, 3 );

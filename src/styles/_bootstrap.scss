@@ -1,0 +1,23 @@
+
+// List group
+//
+.list-group-title {
+  padding-left: $list-group-item-padding-x;
+  padding-right: $list-group-item-padding-x;
+  font-size: .875em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+}
+.list-group-item {
+  margin-bottom: 0;
+  border-top: 0;
+}
+.list-group-item,
+.list-group-flush:last-child .list-group-item:last-child {
+  border-bottom: solid $list-group-border-color $list-group-border-width;
+
+  body.theme-dark & {
+    border-bottom: solid rgba($white, .125) $list-group-border-width;
+  }
+}

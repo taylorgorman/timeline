@@ -1,6 +1,21 @@
 import moment from 'moment'
 
-export default [
+const categories = [
+  {
+    name: 'Friend',
+  },
+  {
+    name: 'Roommate',
+  },
+  {
+    name: 'Romance',
+  },
+  {
+    name: 'Place',
+  }
+]
+
+const items = [
   {
     type: 'romance',
     title: 'Whitney',
@@ -140,3 +155,8 @@ export default [
     end: moment(),
   },
 ]
+
+export default {
+  categories,
+  items,
+}
