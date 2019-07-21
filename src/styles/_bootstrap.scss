@@ -1,14 +1,6 @@
 
 // List group
 //
-.list-group-title {
-  padding-left: $list-group-item-padding-x;
-  padding-right: $list-group-item-padding-x;
-  font-size: .875em;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-}
 .list-group-item {
   margin-bottom: 0;
   border-top: 0;
@@ -20,4 +12,10 @@
   body.theme-dark & {
     border-bottom: solid rgba($white, .125) $list-group-border-width;
   }
+}
+
+// Forms
+//
+.form-label {
+  font-weight: 600;
 }

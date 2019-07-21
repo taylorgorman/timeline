@@ -1,18 +1,51 @@
 @import '../../styles/start';
 
+$admin_padding_x: $list-group-item-padding-x;
+
 .admin {
   font-size: .875em;
   background-color: $gray-200;
-  height: 100vh;
-  width: $admin_width;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9;
-  padding: $body_padding_y 0;
+  padding: $body_padding_y $admin_padding_x;
   transition: all 300ms ease-out;
 
   body.theme-dark & {
     background-color: darken( $gray-900, 3 );
+  }
+  .list-group {
+    margin-left: -$admin_padding_x;
+    margin-right: -$admin_padding_x;
+  }
+  .category {
+    .align {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .color {
+      border: solid 1px $list-group-border-color;
+      width: 1.2em;
+      height: 1.2em;
+      border-radius: 100%;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    width: $admin_width;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+  }
+}
+.admin-title {
+  font-size: .875em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  margin-top: 2rem;
+
+  &:first-child {
+    margin-top: 0;
   }
 }

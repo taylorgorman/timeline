@@ -3,7 +3,6 @@
 body {
   display: flex;
   align-items: flex-end;
-  min-height: 100vh;
   background: white;
   color: #222;
   transition: all 300ms ease-out;
@@ -11,6 +10,9 @@ body {
   &.theme-dark {
     background: $gray-900;
     color: white;
+  }
+  @include media-breakpoint-up(md) {
+    min-height: 100vh;
   }
 }
 .btn-dark-toggle {

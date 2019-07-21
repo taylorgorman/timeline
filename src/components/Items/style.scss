@@ -18,7 +18,7 @@
 
   @each $label, $color in $colors {
     &.#{$label} {
-      background-color: rgba($color, .2);
+      background-color: $color;
       color: darken($color, 30);
     }
   }

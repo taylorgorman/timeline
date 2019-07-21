@@ -1,11 +1,12 @@
 import './style.scss'
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../../context'
 import moment from 'moment'
 
 
 export default function ( props ) {
 
-  const { startDate } = props
+  const context = useContext( Context );
 
   // manipulate rows
   let rows = [{
@@ -48,19 +49,27 @@ export default function ( props ) {
   }
 
   // calculate extra data from items
-  const itemsProcessed = props.items.map( item => {
+  const itemsProcessed = context.items.map( item => {
 
     const daysLength = item.end.diff( item.start, 'd' )
-    const daysSinceStart = item.start.diff( startDate, 'd' )
+    const daysSinceStart = item.start.diff( context.startDate, 'd' )
+    let color
+
+    if ( context.theme === 'light' )
+      color = context.categories[item.category].color.darken(.7)
+    if ( context.theme === 'dark' )
+      color = context.categories[item.category].color.lighten(.8)
 
     return {
       ...item,
       daysLength,
       daysSinceStart,
       style: {
-        width: ( daysLength + 1 ) * props.zoom + 'rem', // +1 to include both first and last days
-        left: daysSinceStart * props.zoom + 'rem',
+        width: ( daysLength + 1 ) * context.zoom + 'rem', // +1 to include both first and last days
+        left: daysSinceStart * context.zoom + 'rem',
         bottom: getRow( item ) * 1.7 + 'em', // *1.7 to accommodate for padding
+        color,
+        backgroundColor: context.categories[item.category].color.fade(.75),
       },
     }
 
@@ -70,7 +79,11 @@ export default function ( props ) {
 
     <div className="items">
     { itemsProcessed.map( ( item, key ) => (
-      <div className={ 'item ' + item.type } style={ item.style } key={ key }>
+      <div
+        className={ 'item item-' + context.categories[item.category].name.toLowerCase() }
+        style={ item.style }
+        key={ key }
+      >
         <span className="title">
           { item.title }
         </span>

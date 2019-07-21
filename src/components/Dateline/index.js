@@ -1,14 +1,17 @@
 import './style.scss';
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../../context'
 import moment from 'moment';
 
 export default function ( props ) {
 
+  const context = useContext( Context );
+
   // timeline boundaries
-  const { startDate } = props
+  const { startDate } = context
   const startYear = startDate.clone().startOf('year')
   const startMonth = startDate.clone().startOf('month')
-  const endDate = moment.max( props.items.map( item => item.end ) )
+  const endDate = moment.max( context.items.map( item => item.end ) )
   const endYear = endDate.clone().startOf('year')
   const endMonth = endDate.clone().startOf('month')
 
@@ -16,10 +19,6 @@ export default function ( props ) {
   let years = []
   let iYear = startYear.clone()
   while ( moment.min( iYear, endDate ) === iYear ) {
-
-    //console.log(`iYear`, iYear.format('MM DD YYYY'));
-    //console.log(`startYear`, startYear.format('MM DD YYYY'));
-    //console.log(`endYear`, endYear.format('MM DD YYYY'));
 
     // All middle years
     let daysIn = iYear.daysInYear()
@@ -56,17 +55,17 @@ export default function ( props ) {
   const renderMarks = ( n ) => {
     let marks = [];
     for ( let i = 0; i < n; i++ ) {
-      marks.push( <div className="month-mark" style={{ width: 'calc(' + props.zoom + 'rem - 1px)' }} key={ i } /> )
+      marks.push( <div className="month-mark" style={{ width: 'calc(' + context.zoom + 'rem - 1px)' }} key={ i } /> )
     }
     return marks;
   }
 
   return (
 
-    <div className={ 'dateline' + ( props.zoom < .5 ? ' no-day-marks' : '' ) }>
+    <div className={ 'dateline' + ( context.zoom < .5 ? ' no-day-marks' : '' ) }>
       <div className="years">
       { years.map( ( year, key ) => (
-        <div className="year" style={{ width: year.daysIn * props.zoom + 'rem' }} key={key}>
+        <div className="year" style={{ width: year.daysIn * context.zoom + 'rem' }} key={key}>
           <span className="name">{ year.moment.format('YYYY') }</span>
         </div>
       ) ) }

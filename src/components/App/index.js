@@ -1,26 +1,24 @@
+import React from 'react'
+import moment from 'moment'
+
 import './style.scss'
-import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
 import Timeline from '../Timeline'
 import Admin from '../Admin'
 
 
-export default function() {
+moment.prototype.daysInYear = function(){
+  return this.isLeapYear() ? 366 : 365
+}
+String.prototype.capitalize = function(){
+  return this.charAt(0).toUpperCase() + this.slice(1)
+}
 
-  // Theme
-  const [ isDarkTheme, setIsDarkTheme ] = useState( false )
-  const toggleDarkTheme = () => {
-    document.body.classList.toggle( 'theme-dark' )
-    setIsDarkTheme( ! isDarkTheme )
-  }
+export default function() {
 
   return ( <>
 
     <Admin />
     <Timeline />
-    <Button className="btn-dark-toggle" onClick={ toggleDarkTheme }>
-      { isDarkTheme ? 'Light' : 'Dark' } theme
-    </Button>
 
   </> )
 
