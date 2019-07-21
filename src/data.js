@@ -55,7 +55,7 @@ const items = [
     category: 1,
     title: 'Jenna',
     start: moment('2018-01-16'),
-    end: moment('2018-12-15'),
+    end: moment('2018-12-14'),
   },
   {
     category: 1,

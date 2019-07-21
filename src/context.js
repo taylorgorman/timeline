@@ -21,12 +21,17 @@ export function Provider( props ) {
   document.body.classList.add( 'theme-' + theme )
 
   // Width of days
-  const [ zoom ] = useState( 0.1 )
+  const [ zoom ] = useState( 2 )
 
   // Items
   const [ items ] = useState( data.items )
   // sort by start date
   items.sort( ( a, b ) => ( moment.min( a.start, b.start ) === b.start ) ? 1 : -1 )
+
+  // Dates
+  const startDate = moment.min( items.map( item => item.start ) )
+  const startYear = startDate.clone().startOf('year')
+  const startMonth = startDate.clone().startOf('month')
 
   return (
 
@@ -34,10 +39,13 @@ export function Provider( props ) {
       ...data,
       items,
       zoom,
+      zoomUnits: 'px',
       themes,
       theme,
       changeTheme,
-      startDate: moment.min( items.map( item => item.start ) ),
+      startDate,
+      startYear,
+      startMonth,
     }}>
       { props.children }
     </Context.Provider>

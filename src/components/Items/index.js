@@ -52,7 +52,7 @@ export default function ( props ) {
   const itemsProcessed = context.items.map( item => {
 
     const daysLength = item.end.diff( item.start, 'd' )
-    const daysSinceStart = item.start.diff( context.startDate, 'd' )
+    const daysSinceStart = item.start.diff( context.startMonth, 'd' )
     let color
 
     if ( context.theme === 'light' )
@@ -65,8 +65,8 @@ export default function ( props ) {
       daysLength,
       daysSinceStart,
       style: {
-        width: ( daysLength + 1 ) * context.zoom + 'rem', // +1 to include both first and last days
-        left: daysSinceStart * context.zoom + 'rem',
+        width: ( daysLength + 1 ) * context.zoom + context.zoomUnits, // +1 to include both first and last days
+        left: daysSinceStart * context.zoom + context.zoomUnits,
         bottom: getRow( item ) * 1.7 + 'em', // *1.7 to accommodate for padding
         color,
         backgroundColor: context.categories[item.category].color.fade(.75),

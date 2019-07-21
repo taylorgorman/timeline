@@ -1,6 +1,6 @@
 
 .dateline {
-  $border_color: #999;
+  $border_color: #888;
 
   margin: 1em 0;
   font-size: .75em;
@@ -11,33 +11,32 @@
   .year,
   .month {
     display: inline-block;
-  }
-  .year,
-  .month-name {
+    position: relative;
     padding: .75em 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-left: solid 1px $border_color;
+      left: 0;
+      height: .5em;
+    }
   }
-  .year .name {
-    position: sticky;
-    left: 1rem;
-    padding-right: 1rem;
+  .year {
+    border-bottom: solid 1px $border_color;
+
+    &::before {
+      bottom: 0;
+    }
+    .name {
+      position: sticky;
+      left: 1rem;
+      padding-right: 1rem;
+    }
   }
-  .month-marks {
-    display: flex;
-    align-items: baseline;
-    border-top: solid 1px $border_color;
-  }
-  .month-mark {
-    border-left: solid 1px rgba($border_color, .4);
-    height: .25em;
-  }
-  &.no-day-marks .month-mark:not(:first-child) {
-    border-left-color: transparent;
-  }
-  .month-mark:first-child {
-    border-left-color: $border_color;
-    height: 1em;
-  }
-  &.no-day-marks .month-mark:first-child {
-    height: .5em;
+  .month {
+    &::before {
+      top: 0;
+    }
   }
 }

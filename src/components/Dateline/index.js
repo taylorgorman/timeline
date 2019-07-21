@@ -8,9 +8,7 @@ export default function ( props ) {
   const context = useContext( Context );
 
   // timeline boundaries
-  const { startDate } = context
-  const startYear = startDate.clone().startOf('year')
-  const startMonth = startDate.clone().startOf('month')
+  const { startYear, startMonth } = context
   const endDate = moment.max( context.items.map( item => item.end ) )
   const endYear = endDate.clone().startOf('year')
   const endMonth = endDate.clone().startOf('month')
@@ -51,35 +49,20 @@ export default function ( props ) {
     iMonth.add( 1, 'M' );
   }
 
-  // render marks for days of month
-  const renderMarks = ( n ) => {
-    let marks = [];
-    for ( let i = 0; i < n; i++ ) {
-      marks.push( <div className="month-mark" style={{ width: 'calc(' + context.zoom + 'rem - 1px)' }} key={ i } /> )
-    }
-    return marks;
-  }
-
   return (
 
-    <div className={ 'dateline' + ( context.zoom < .5 ? ' no-day-marks' : '' ) }>
+    <div className='dateline'>
       <div className="years">
       { years.map( ( year, key ) => (
-        <div className="year" style={{ width: year.daysIn * context.zoom + 'rem' }} key={key}>
+        <div className="year" style={{ width: year.daysIn * context.zoom + context.zoomUnits }} key={key}>
           <span className="name">{ year.moment.format('YYYY') }</span>
         </div>
       ) ) }
       </div>
       <div className="months">
       { months.map( ( month, key ) => (
-        <div className="month" key={key}>
-
-          <div className="month-marks">
-            { renderMarks( month.daysInMonth() ) }
-          </div>
-          <div className="month-name">
-            { month.format('MMM') }
-          </div>
+        <div className="month" key={ key } style={{ width: month.daysInMonth() * context.zoom + context.zoomUnits }}>
+          { month.format('MMM') }
         </div>
       ) ) }
       </div>
