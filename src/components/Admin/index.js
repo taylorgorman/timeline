@@ -34,12 +34,7 @@ export default function ( props ) {
       </Form.Group>
       <Form.Group controlId="theme">
         <Form.Label>Theme</Form.Label>
-        { context.themes.map( ( theme, key ) => {
-
-          console.log('theme',theme)
-          console.log('context.theme',context.theme)
-
-        return (
+        { context.themes.map( ( theme, key ) => (
           <Form.Check
             custom
             type='radio'
@@ -50,7 +45,7 @@ export default function ( props ) {
             checked={ theme === context.theme }
             key={ key }
           />
-        ) } ) }
+        ) ) }
       </Form.Group>
 
     </div>
