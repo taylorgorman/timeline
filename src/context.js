@@ -21,7 +21,7 @@ export function Provider( props ) {
   document.body.classList.add( 'theme-' + theme )
 
   // Width of days
-  const [ zoom ] = useState( 2 )
+  const [ zoom ] = useState( 1.5 )
 
   // Items
   const [ items ] = useState( data.items )
