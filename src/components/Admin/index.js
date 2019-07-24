@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ListGroup, Form } from 'react-bootstrap'
+import { Settings } from 'react-feather'
 
 import './style.scss'
 import Context from '../../context'
@@ -19,7 +20,14 @@ export default function ( props ) {
         { context.categories.map( ( category, key ) => (
           <ListGroup.Item key={key} className="category">
           <div className="align">
-            <span className="name">{ category.name }</span>
+            <Form.Check
+              custom
+              type='checkbox'
+              id={ `category-` + key }
+              label={ category.name }
+              style={{ flexGrow:1 }}
+            />
+            <Settings size={ 16 } />
             <span className="color" style={{ backgroundColor:category.color }} />
           </div>
           </ListGroup.Item>
