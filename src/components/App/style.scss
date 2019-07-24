@@ -8,7 +8,7 @@ body {
   transition: all 300ms ease-out;
 
   &.theme-dark {
-    background: $gray-900;
+    background: $black;
     color: white;
   }
   @include media-breakpoint-up(md) {
@@ -19,9 +19,4 @@ body {
   position: fixed;
   top: 5vh;
   right: calc(#{$admin_width} + 5vw);
-
-//  body.theme-dark & {
-//    color: white;
-//    background-color: rgba(white, .1);
-//  }
 }

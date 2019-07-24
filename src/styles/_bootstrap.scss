@@ -1,4 +1,10 @@
 
+// Colors
+//
+@each $number, $color in $grays {
+  .bg-gray-#{$number} { background-color: $color }
+}
+
 // List group
 //
 .list-group-item {
@@ -10,7 +16,7 @@
   border-bottom: solid $list-group-border-color $list-group-border-width;
 
   body.theme-dark & {
-    border-bottom: solid rgba($white, .125) $list-group-border-width;
+    border-bottom: solid lighten( $black, 15 ) $list-group-border-width;
   }
 }
 
