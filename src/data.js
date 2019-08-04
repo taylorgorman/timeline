@@ -3,19 +3,27 @@ import color from 'color'
 
 const categories = [
   {
+    id: 1,
     name: 'Friend',
+    visible: true,
     color: color('#0069ff'),
   },
   {
+    id: 2,
     name: 'Roommate',
+    visible: true,
     color: color('#80f10e'),
   },
   {
+    id: 3,
     name: 'Romance',
+    visible: true,
     color: color('#ff002b'),
   },
   {
+    id: 4,
     name: 'Place',
+    visible: true,
     color: color('#cc6532'),
   }
 ]

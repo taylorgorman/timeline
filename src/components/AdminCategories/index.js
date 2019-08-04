@@ -26,7 +26,13 @@ export default function ( props ) {
         <div className="align">
           <Form.Check
             custom
-            checked
+            checked={ category.visible }
+            onChange={ ()=> {
+              context.setCategory({
+                ...category,
+                visible: ! category.visible
+              })
+            } }
             type="checkbox"
             id={ `category-` + key }
             label={ category.name }

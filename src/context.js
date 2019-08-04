@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import data from './data'
 import moment from 'moment'
 
@@ -8,24 +8,40 @@ export default Context
 
 export function Provider( props ) {
 
+  // Settings
+  //
+  const [ zoom ] = useState( 1.5 )
+
   // Theme
   const themes = [
     'light',
     'dark',
   ]
-  const [ theme, setTheme ] = useState( 'light' )
-  const changeTheme = toThis => {
+  const [ theme, setTheme ] = useState( 'dark' )
+  const changeTheme = ( toThis ) => {
     themes.forEach( theme => document.body.classList.remove( 'theme-' + theme ) )
     setTheme( toThis )
   }
   document.body.classList.add( 'theme-' + theme )
 
-  // Width of days
-  const [ zoom ] = useState( 1.5 )
+  // Categories
+  //
+  const [ categories, setCategories ] = useState([])
+
+  const setCategory = ( newCategory ) => {
+    setCategories( categories.map( category => {
+      if ( category.id === newCategory.id )
+        return newCategory
+      else
+        return category
+    } ) )
+  }
 
   // Items
-  const [ items ] = useState( data.items )
-  // sort by start date
+  //
+  const [ items, setItems ] = useState([])
+
+  // Sort by start date
   items.sort( ( a, b ) => ( moment.min( a.start, b.start ) === b.start ) ? 1 : -1 )
 
   // Dates
@@ -33,16 +49,25 @@ export function Provider( props ) {
   const startYear = startDate.clone().startOf('year')
   const startMonth = startDate.clone().startOf('month')
 
+
+  // On load
+  //
+  useEffect( () => {
+    setItems( data.items )
+    setCategories( data.categories )
+  }, [] )
+
   return (
 
     <Context.Provider value={{
-      ...data,
+      categories,
       items,
       zoom,
       zoomUnits: 'px',
       themes,
       theme,
       changeTheme,
+      setCategory,
       startDate,
       startYear,
       startMonth,
