@@ -10,10 +10,13 @@ export default function ( props ) {
 
   return ( <>
 
+    {/*
     <Form.Group controlId="day-width">
       <Form.Label>Day width</Form.Label>
       <Form.Control type="range" />
     </Form.Group>
+    */}
+
     <Form.Group controlId="theme">
       <Form.Label>Theme</Form.Label>
       { context.themes.map( ( theme, key ) => (
