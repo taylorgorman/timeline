@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react'
-import data from './data'
 import moment from 'moment'
+
+import data from './data'
+import firebase from './utilities/firebase'
 
 
 const Context = createContext()
@@ -71,6 +73,7 @@ export function Provider( props ) {
       startDate,
       startYear,
       startMonth,
+      firebase,
     }}>
       { props.children }
     </Context.Provider>
