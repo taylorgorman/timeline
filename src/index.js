@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style.scss'
-import { Provider } from './context'
+import { Provider } from './Context'
 import Routes from './Routes'
 import * as serviceWorker from './serviceWorker'
 

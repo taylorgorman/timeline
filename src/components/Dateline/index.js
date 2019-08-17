@@ -1,6 +1,6 @@
 import './style.scss';
 import React, { useContext } from 'react';
-import Context from '../../context'
+import Context from '../../Context'
 import moment from 'moment';
 
 export default function ( props ) {

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { ListGroup, Form } from 'react-bootstrap'
 import { Settings } from 'react-feather'
 
-import Context from '../../context'
+import Context from '../../Context'
 
 
 export default function ( props ) {

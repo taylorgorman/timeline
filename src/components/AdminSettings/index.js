@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Form } from 'react-bootstrap'
 
-import Context from '../../context'
+import Context from '../../Context'
 
 
 export default function ( props ) {
