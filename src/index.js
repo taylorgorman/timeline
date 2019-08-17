@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import './style.scss'
 import { Provider } from './context'
-import App from './components/App'
+import Routes from './Routes'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-  <Provider><App /></Provider>,
+  <Provider><Routes /></Provider>,
   document.getElementById('root')
 )
 
