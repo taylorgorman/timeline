@@ -1,8 +1,8 @@
 import React from 'react'
 
 import './style.scss'
-import AdminCategories from '../AdminCategories'
-import AdminSettings from '../AdminSettings'
+import AdminCategories from './Categories'
+import AdminSettings from './Settings'
 
 
 export default function ( props ) {
