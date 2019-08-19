@@ -1,8 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react'
 import moment from 'moment'
+import firebase from 'firebase/app'
 
+import './utilities/firebase'
 import data from './data'
-import firebase from './utilities/firebase'
 
 
 const Context = createContext()
@@ -51,17 +52,39 @@ export function Provider( props ) {
   const startYear = startDate.clone().startOf('year')
   const startMonth = startDate.clone().startOf('month')
 
+  // Firebase
+  //
+  const [ user, setUser ] = useState()
 
-  // On load
+  const signOut = () => {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
+
+  // "componentDidMount"
   //
   useEffect( () => {
+
     setItems( data.items )
     setCategories( data.categories )
+
+    firebase.auth().onAuthStateChanged( firebaseUser => {
+      if ( firebaseUser !== user )
+        setUser( firebaseUser )
+    } )
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [] )
 
   return (
 
     <Context.Provider value={{
+      authIsLoading: ()=> user === undefined,
+      user,
+      signOut,
       categories,
       items,
       zoom,
@@ -73,7 +96,6 @@ export function Provider( props ) {
       startDate,
       startYear,
       startMonth,
-      firebase,
     }}>
       { props.children }
     </Context.Provider>

@@ -12,6 +12,23 @@ $admin_padding_x: $list-group-item-padding-x;
     background-color: lighten( $black, 3 );
     border-left: solid 1px lighten( $black, 15 );
   }
+  .user {
+    img,
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    img {
+      width: 3em;
+      height: 3em;
+      border-radius: 100%;
+      margin-right: 1em;
+    }
+    .btn-link {
+      padding: 0;
+      font-size: .875em;
+    }
+  }
   .list-group {
     margin-left: -$admin_padding_x;
     margin-right: -$admin_padding_x;

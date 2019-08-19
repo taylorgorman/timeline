@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import './style.scss'
-import AdminCategories from './Categories'
-import AdminSettings from './Settings'
+import Context from '../../Context'
+import Categories from './Categories'
+import Settings from './Settings'
+import User from './User'
 
 
 export default function ( props ) {
@@ -11,11 +13,13 @@ export default function ( props ) {
 
     <div className="admin">
 
+      <User />
+
       <h3 className="admin-title">Categories</h3>
-      <AdminCategories />
+      <Categories />
 
       <h3 className="admin-title">Settings</h3>
-      <AdminSettings />
+      <Settings />
 
     </div>
 
