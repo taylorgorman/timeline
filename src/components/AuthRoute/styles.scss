@@ -1,13 +1,6 @@
 
-.firebaseui-auth {
+.authenticate {
   width: 90%;
-}
-.fixed-center {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
 }
 .firebaseui-id-page-callback.firebaseui-container {
   background: none;
@@ -17,20 +10,9 @@
   min-height: 0;
 
   &::before {
-    content: 'Authenticating...';
+    content: 'Signing in...';
   }
   .firebaseui-callback-indicator-container {
     display: none;
   }
-}
-@keyframes rotate {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(359deg);
-	}
-}
-.infinite-rotate {
-	animation: rotate 1.75s infinite linear;
 }

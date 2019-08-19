@@ -32,9 +32,9 @@ export default function Authenticate( props ) {
 
   return (
 
-    <div className={ firebaseUiAuthContainerId }>
+    <div className="authenticate fixed-center">
       <h1 className="h3">Sign in to Timeline</h1>
-      <div id="firebaseui-auth-container" />
+      <div id={ firebaseUiAuthContainerId } />
     </div>
 
   )
