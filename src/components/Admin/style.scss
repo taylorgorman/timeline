@@ -18,11 +18,15 @@ $admin_padding_x: $list-group-item-padding-x;
       display: inline-block;
       vertical-align: middle;
     }
-    img {
+    img,
+    .nophoto {
       width: 3em;
       height: 3em;
       border-radius: 100%;
       margin-right: 1em;
+    }
+    .nophoto {
+      background-color: $gray-900;
     }
     .btn-link {
       padding: 0;

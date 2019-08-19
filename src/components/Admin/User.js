@@ -12,7 +12,11 @@ export default function ( props ) {
 
     <div className="user">
 
-      <img src={ user.photoURL } alt={ user.displayName + ' profile photo' } />
+      { user.photoURL ? (
+        <img src={ user.photoURL } alt={ user.displayName + ' profile photo' } />
+      ) : (
+        <span className="nophoto" />
+      ) }
 
       <span className="display-name">
         { user.displayName }<br />
