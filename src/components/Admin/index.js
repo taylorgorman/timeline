@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import './style.scss'
-import Context from '../../Context'
 import Categories from './Categories'
 import Settings from './Settings'
 import User from './User'

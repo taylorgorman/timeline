@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react'
 import moment from 'moment'
 import firebase from 'firebase/app'
 
-import './utilities/firebase'
+import { signOut, authChange } from './utilities/firebase'
 import data from './data'
 
 
@@ -52,17 +52,9 @@ export function Provider( props ) {
   const startYear = startDate.clone().startOf('year')
   const startMonth = startDate.clone().startOf('month')
 
-  // Firebase
+  // Authentication
   //
   const [ user, setUser ] = useState()
-
-  const signOut = () => {
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
-    });
-  }
 
   // "componentDidMount"
   //
@@ -71,9 +63,9 @@ export function Provider( props ) {
     setItems( data.items )
     setCategories( data.categories )
 
-    firebase.auth().onAuthStateChanged( firebaseUser => {
-      if ( firebaseUser !== user )
-        setUser( firebaseUser )
+    authChange( newUser => {
+      if ( newUser !== user )
+        setUser( newUser )
     } )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

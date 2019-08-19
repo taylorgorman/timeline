@@ -11,9 +11,22 @@ firebase.initializeApp({
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 })
 
+const signOut = () => {
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
+
+const authChange = ( callback ) => {
+  firebase.auth().onAuthStateChanged( callback )
+}
+
 const firebaseUiAuth = new firebaseui.auth.AuthUI( firebase.auth() )
 
 export {
-  firebase,
+  signOut,
+  authChange,
   firebaseUiAuth,
 }
