@@ -1,6 +1,9 @@
 # Timeline
+> Visualize the people, places, and events of your life
 
-## TO DO
+## To do
+- `firebase init hosting:github`
+- Update favicon
 - Change borders to absolutely positioned pseudo-elements so years and months don't get misaligned. Remember to remove the -1px adjustment on the months.
 - Add onClick to items that highlights, allows edit, and shows more data.
 - Items can be above or below dateline
@@ -9,3 +12,4 @@
 - Items can be changed by grabbing ends or middle?
 - Maintain scroll position
 - Connect with Firebase
+- User can have mutliple timelines
