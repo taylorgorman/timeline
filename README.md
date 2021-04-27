@@ -4,6 +4,9 @@
 ## To do
 - `firebase init hosting:github`
 - Update favicon
+- Update to use react-firebase-hooks for auth and database
+
+### Old to do
 - Change borders to absolutely positioned pseudo-elements so years and months don't get misaligned. Remember to remove the -1px adjustment on the months.
 - Add onClick to items that highlights, allows edit, and shows more data.
 - Items can be above or below dateline
