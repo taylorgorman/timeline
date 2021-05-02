@@ -13,7 +13,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/taylorgorman/timeline)
 
 ## To do
-- `firebase init hosting:github`
+- Figure out what the heck is going on with workflows
 - Update favicon
 - Update to use react-firebase-hooks for auth and database
 
